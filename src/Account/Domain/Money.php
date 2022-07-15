@@ -2,9 +2,6 @@
 
 namespace BuckPal\Account\Domain;
 
-const PRECISION = 2;
-\bcscale(PRECISION);
-
 class Money
 {
   public static Money $zero;
@@ -13,6 +10,7 @@ class Money
 
   protected function __construct(float|string $value)
   {
+    \bcscale(2); 
     $this->amount = \bcadd(gettype($value) === 'string' ? $value : strval($value), 0);
   }
 
