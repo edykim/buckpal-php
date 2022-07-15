@@ -16,7 +16,7 @@ jobs:
           extensions: bcmath, json, mbstring, xml
 
       - name: Install dependencies
-        uses: php-actions/composer@v6
+        run: composer update --prefer-dist --no-interaction --no-suggest --no-progress
 
       - name: Execute tests
         run: bin/phpunit
